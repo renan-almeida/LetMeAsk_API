@@ -6,6 +6,7 @@ import {
 } from 'fastify-type-provider-zod'
 import { fastifyCors } from '@fastify/cors';
 import {  env } from './env.ts';
+import { sql } from '../db/connection.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -24,6 +25,4 @@ app.get('/health', () => {
 
 // Importando rotas
 app.listen({ port: env.PORT }).then(() => {
-    console.log('HTTP server running!')
-    console.log(env.PORT)
-})
+});
